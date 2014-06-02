@@ -1,6 +1,7 @@
 package com.example.preferencias;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	Button Btn_Ingresar;
 	EditText user,password;
-	SharedPreferences preferencias;
+	public SharedPreferences preferencias;
 	TextView Bandera;
 	String Us,Pas;
 	
@@ -27,7 +28,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         levantarXML();
-        preferencias=getSharedPreferences("MisPref", MODE_PRIVATE);
+        preferencias=getSharedPreferences("MisPref", Context.MODE_PRIVATE);
         botones();
       
     }
@@ -79,7 +80,7 @@ public class MainActivity extends Activity {
 			return "Error Usuario";}
 				
 		Log.d("validar","ok!");
-		return " ";
+		return "";
 		
 	}
 
@@ -94,7 +95,8 @@ public class MainActivity extends Activity {
 
 	
 	private void AlmacenarPreferencias(){
-		
+		 
+		  Log.d("validar","preferencias Almacenadas "+Us+"  "+Pas);
 		SharedPreferences.Editor editor=preferencias.edit();
 		editor.putString("user", Us);
 		editor.putString("pass", Pas);
