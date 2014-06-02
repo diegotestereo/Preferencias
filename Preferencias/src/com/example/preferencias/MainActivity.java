@@ -64,20 +64,22 @@ public class MainActivity extends Activity {
 		String usuario,password;
 		
 		usuario=preferencias.getString("user", "default");
+		Log.d("validar","user pref: "+usuario);
 		password=preferencias.getString("pass", "default");
 				
-		if (!usuario.equals("default")){
+		if (usuario.equals("default")){
 			AlmacenarPreferencias();
-			
+			usuario=preferencias.getString("user", "default");
+			Log.d("validar","user pref almacenado: "+usuario);
+		// almaceno preferencias y retorno validacion ok.
 		return "";}
 		
 		if (!usuario.equals(us)){
-			Log.d("validar","usuario distinto");return "Error Usuario";}// valido usuario
-		if (!password.equals(pas)){
-			Log.d("validar","password distinto");return "Error password";}// valido password
-
+			Log.d("validar","Error Usuario");
+			return "Error Usuario";}
 				
-		{Log.d("validar","ok!");return " ";}
+		Log.d("validar","ok!");
+		return " ";
 		
 	}
 
