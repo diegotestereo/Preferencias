@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class SegundaActividad extends Activity{
 	Button Btn_BorrarPref;
 	TextView TxtV_User;
-	SharedPreferences preferencias;
+	public SharedPreferences preferencias;
 	@Override
 	
 	protected void onCreate(Bundle savedInstanceState) {
